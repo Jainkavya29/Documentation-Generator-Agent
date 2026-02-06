@@ -1,99 +1,87 @@
-🚀 Documentation Generator Agent
-The Documentation Generator Agent is an AI-powered technical writing assistant that automatically generates professional, structured documentation from any textual or code-based input.
+# 🚀 Documentation Generator Agent
 
-Using state-of-the-art AI summarization and ScaleDown compression, this agent reduces documentation time by up to 75%, while maintaining clarity, context, and developer-friendly readability.
+The **Documentation Generator Agent** is an AI-powered technical writing assistant that automatically generates professional, structured documentation from any textual or code-based input.
 
-This project showcases the intersection of AI, NLP, and developer tools, making it ideal for hackathons, demos, and GenZ-focused innovation projects.
+Using **state-of-the-art AI summarization** and **ScaleDown compression**, this agent reduces documentation time by up to **75%**, while maintaining clarity, context, and developer-friendly readability.
 
-🔑 Key Features
-AI-Powered Summarization – Condenses long documents into concise, readable summaries.
+This project showcases the intersection of **AI, NLP, and developer tools**, making it ideal for hackathons, demos, and GenZ-focused innovation projects.
 
-Structure Extraction – Automatically identifies headings, sections, and key points.
+---
 
-Simplified Text Generation – Converts technical jargon into easy-to-understand language.
+## 🔑 Key Features
 
-ScaleDown Compression – Compresses large documents and codebases by ~80% without losing context.
+- **AI-Powered Summarization** – Condenses long documents into concise, readable summaries  
+- **Structure Extraction** – Automatically identifies headings, sections, and key points  
+- **Simplified Text Generation** – Converts technical jargon into easy-to-understand language  
+- **ScaleDown Compression** – Compresses large documents and codebases by **~80%** without losing context  
+- **Multi-format Support** – Supports TXT, PDF, and DOCX files  
+- **PDF Output** – Generates ready-to-share, structured documentation  
 
-Multi-format Support – Supports TXT, PDF, and DOCX files.
+---
 
-PDF Output – Generates ready-to-share, structured documentation.
+## 🧩 System Architecture
 
-🧩 System Architecture
-The Documentation Generator Agent is built using modular AI components.
+The Documentation Generator Agent is built using modular AI components that work together to transform raw documents into structured documentation.
 
-Component	Purpose
-ScaleDownAPI	Compresses large text while preserving context
-StructureModel	Extracts headings and document structure
-ExplanationModel	Simplifies complex technical language
-SummaryModel	AI-powered summarization with fallback
-DocGenModel	Coordinates all components
-🛠 Installation (Google Colab)
-To set up the environment, run the following commands:
+| Component | Purpose |
+| :--- | :--- |
+| **ScaleDownAPI** | Compresses large text while preserving context |
+| **StructureModel** | Extracts headings and document structure |
+| **ExplanationModel** | Simplifies complex technical language |
+| **SummaryModel** | AI-powered summarization with fallback |
+| **DocGenModel** | Coordinates all components |
 
-Python
-!pip install nltk pdfplumber pypdf python-docx fpdf transformers requests -q
+---
 
-import nltk
-nltk.download('punkt')
-📂 Usage
-Follow this workflow to process your files:
+## 🛠 Installation (Google Colab)
 
-Step 1: Upload Document
+The project is designed to run in **Google Colab** with commonly used NLP and document-processing libraries.  
+Installation involves setting up dependencies for text extraction, summarization, compression, and PDF generation.
 
-Python
-from google.colab import files
-uploaded = files.upload()
-filename = list(uploaded.keys())[0]
-Step 2: Extract and Process Text
+---
 
-The agent automatically detects and handles TXT, PDF, and DOCX formats.
+## 📂 Usage
 
-Python
-text_document = extract_text_from_file(filename)
-Step 3: Generate Documentation
+Follow this workflow to process documents and generate professional documentation automatically.
 
-Python
-api_key = "YOUR_SCALEDOWN_API_KEY"
-model = DocumentationGeneratorModel(api_key)
-output = model.generate(text_document)
+### Step 1: Upload Document
+Upload a document in **TXT**, **PDF**, or **DOCX** format to the environment.
 
-print("----- SUMMARY -----")
-print(output["summary"])
+### Step 2: Extract and Process Text
+The agent automatically detects the file type and extracts text accordingly, ensuring consistent input for downstream AI models.
 
-print("\n----- STRUCTURE -----")
-print(output["structure"])
+### Step 3: Generate Documentation
+The system processes the extracted text through summarization, structure detection, simplification, and compression pipelines to generate structured documentation.
 
-print("\n----- EASY VERSION -----")
-print(output["easy_text"])
-Step 4: Export as PDF
+### Step 4: Export as PDF
+The final output is exported as a **professionally formatted PDF** ready for sharing or submission.
 
-Python
-pdf = create_pdf(output)
-files.download("documentation_output.pdf")
-🌐 ScaleDown API Integration
-The ScaleDown API is the engine that allows this agent to process massive repositories or documents that would normally exceed LLM token limits.
+---
 
-Python
-call_scaledown_api(
-    prompt_text,
-    context_text="",
-    api_key="YOUR_API_KEY"
-)
-Capabilities:
+## 🌐 ScaleDown API Integration
 
-Intelligent Compression: Achieves ~80% reduction in size.
+The **ScaleDown API** is the core engine that enables the agent to handle large documents and repositories that would normally exceed LLM token limits.
 
-Context Retention: Maintains context across 100+ pages or multiple files.
+- **Intelligent Compression** – Achieves approximately **80% reduction** in document size  
+- **Context Retention** – Maintains semantic continuity across **100+ pages or multiple files**  
+- **Reliability** – Includes a safe fallback to the original text if compression quality is not optimal  
 
-Reliability: Includes a safe fallback to original text if compression isn't optimal.
+---
 
-📄 Output Components
-The system provides a 4-tier output for every processed document:
+## 📄 Output Components
 
-Summary: Condensed overview of the core functionality.
+For every processed document, the system generates a structured, multi-layered output:
 
-Structure: Extracted hierarchy of headings and sections.
+- **Summary** – Condensed overview of the core content  
+- **Structure** – Extracted hierarchy of headings and sections  
+- **Easy Text** – Simplified, plain-language explanation for non-technical users  
+- **PDF** – Fully formatted documentation ready for distribution  
 
-Easy Text: A "plain English" version for non-technical stakeholders.
+---
 
-PDF: A formatted, professional document file.
+## 🧠 Conclusion
+
+The **Documentation Generator Agent** demonstrates how AI can automate one of the most neglected yet critical tasks in software development — **documentation**.
+
+It is fast, scalable, and designed for modern developer ecosystems, making it well-suited for hackathons, research demos, and real-world applications.
+
