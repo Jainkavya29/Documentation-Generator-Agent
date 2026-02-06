@@ -18,26 +18,17 @@ Multi-format Support – Supports TXT, PDF, and DOCX files.
 
 PDF Output – Generates ready-to-share, structured documentation.
 
-⚡ Why This Project Stands Out
-Efficiency: Reduces documentation overhead for developers and writers.
-
-Modern Tech Stack: Combines Hugging Face transformers with the ScaleDown API.
-
-Demo-Ready: Easy to run on Google Colab with immediate visual results.
-
-Impactful: Judges can see live compression + summarization in action.
-
 🧩 System Architecture
-The Documentation Generator Agent is built using modular AI components designed to work in a sequential pipeline.
+The Documentation Generator Agent is built using modular AI components.
 
 Component	Purpose
 ScaleDownAPI	Compresses large text while preserving context
 StructureModel	Extracts headings and document structure
 ExplanationModel	Simplifies complex technical language
-SummaryModel	AI-powered summarization with fallback mechanisms
-DocGenModel	Coordinates all components into a single output
+SummaryModel	AI-powered summarization with fallback
+DocGenModel	Coordinates all components
 🛠 Installation (Google Colab)
-Run the following cell to install all necessary dependencies:
+To set up the environment, run the following commands:
 
 Python
 !pip install nltk pdfplumber pypdf python-docx fpdf transformers requests -q
@@ -45,7 +36,7 @@ Python
 import nltk
 nltk.download('punkt')
 📂 Usage
-Follow these steps to upload a document (TXT / PDF / DOCX) and generate professional documentation automatically.
+Follow this workflow to process your files:
 
 Step 1: Upload Document
 
@@ -55,20 +46,17 @@ uploaded = files.upload()
 filename = list(uploaded.keys())[0]
 Step 2: Extract and Process Text
 
-The system automatically handles different file formats to prepare them for AI processing.
+The agent automatically detects and handles TXT, PDF, and DOCX formats.
 
 Python
 text_document = extract_text_from_file(filename)
 Step 3: Generate Documentation
-
-Input your ScaleDown API key to begin the intelligent compression and generation process.
 
 Python
 api_key = "YOUR_SCALEDOWN_API_KEY"
 model = DocumentationGeneratorModel(api_key)
 output = model.generate(text_document)
 
-# View the results in the console
 print("----- SUMMARY -----")
 print(output["summary"])
 
@@ -79,13 +67,11 @@ print("\n----- EASY VERSION -----")
 print(output["easy_text"])
 Step 4: Export as PDF
 
-Generate and download the final structured PDF file.
-
 Python
 pdf = create_pdf(output)
 files.download("documentation_output.pdf")
 🌐 ScaleDown API Integration
-The core power of this agent lies in the ScaleDown API, which handles the heavy lifting of large-scale text management.
+The ScaleDown API is the engine that allows this agent to process massive repositories or documents that would normally exceed LLM token limits.
 
 Python
 call_scaledown_api(
@@ -95,19 +81,19 @@ call_scaledown_api(
 )
 Capabilities:
 
-~80% intelligent compression of raw data.
+Intelligent Compression: Achieves ~80% reduction in size.
 
-Maintains context across 100+ pages/files.
+Context Retention: Maintains context across 100+ pages or multiple files.
 
-Safe fallback to original text if compression thresholds aren't met.
+Reliability: Includes a safe fallback to original text if compression isn't optimal.
 
-📄 Output
-The system generates a comprehensive package:
+📄 Output Components
+The system provides a 4-tier output for every processed document:
 
-Summary: A condensed, high-level overview.
+Summary: Condensed overview of the core functionality.
 
-Structure: Extracted headings and logical sections.
+Structure: Extracted hierarchy of headings and sections.
 
-Easy Text: Simplified, human-readable explanations.
+Easy Text: A "plain English" version for non-technical stakeholders.
 
-PDF: A professionally formatted document ready for distribution.
+PDF: A formatted, professional document file.
